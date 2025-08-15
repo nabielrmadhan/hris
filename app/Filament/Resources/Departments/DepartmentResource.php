@@ -93,4 +93,9 @@ class DepartmentResource extends Resource
             'index' => ManageDepartments::route('/'),
         ];
     }
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasAnyRole(['super_admin', 'hr']);
+    }
 }
