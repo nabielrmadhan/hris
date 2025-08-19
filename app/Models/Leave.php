@@ -9,14 +9,9 @@ class Leave extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
-    protected $casts = [
-        'start_date' => 'date',
-        'end_date' => 'date',
-    ];
-
-    public function user() {
-        return $this->belongsTo(User::class);
+    public function employee() {
+        return $this->belongsTo(User::class, 'employee_id', 'id');
     }
 }
