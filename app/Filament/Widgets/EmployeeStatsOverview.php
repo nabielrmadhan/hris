@@ -9,6 +9,11 @@ use App\Models\User;
 
 class EmployeeStatsOverview extends StatsOverviewWidget
 {
+
+    public static function canView(): bool
+    {
+        return auth()->user()->hasRole(['super_admin', 'HR']);
+    }
     protected function getStats(): array
     {
         return [
