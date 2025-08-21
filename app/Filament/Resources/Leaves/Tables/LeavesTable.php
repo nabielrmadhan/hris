@@ -23,6 +23,7 @@ class LeavesTable
                     ->visible(fn () => !auth()->user()->hasRole(['employee'])),
                 TextColumn::make('employee.quota')
                     ->label('Quota'),
+                TextColumn::make('employee.department.name'),
                 BadgeColumn::make('type')
                     ->colors([
                         'info' => 'cuti',

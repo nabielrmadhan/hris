@@ -27,12 +27,18 @@ class LeaveForm
                 ->required(),
                 DatePicker::make('start_date')
                 ->label('Start At')
+                ->minDate(now()->addDays(3)->startOfDay())
                 ->required(),
                 DatePicker::make('end_date')
                 ->label('End At')
                 ->required(),
                 Textarea::make('reason')
                 ->required(),
+                TextInput::make('duration_days')
+                ->numeric()
+                ->required()
+                ->minValue(1)
+                ->label('Duration (Days)'),
             ]);
     }
 }

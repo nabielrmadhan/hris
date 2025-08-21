@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
@@ -42,6 +43,9 @@ class UserForm
                     ->numeric(),
                 TextInput::make('quota')
                     ->numeric(),
+                CheckboxList::make('roles')
+                    ->label('Web Roles')
+                    ->relationship('roles', 'name')
             ]);
     }
 }
